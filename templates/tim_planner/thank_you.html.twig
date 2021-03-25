@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block nav %}
+    <nav>
+        <ul class="nav text-light">
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('index') }}">Home</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('about') }}">About Us</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('media') }}">Media</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('advertise') }}">Advertise</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('contact') }}">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block section %}
+    <section>
+        <div style="top:15%;left:10%;width: 30%;padding:30px;">
+            <h1 class="f-neuropol m-0" style="color: #2878b1;">THANK YOU</h1>
+            <h3 class="f-Semibold" style="font-family: OpenSans-Semibold; font-size: 25px;">for Registering</h3>
+            <img src="{{ asset('./images/about/hr.png') }}" alt="hr">
+            <p class="f-bold " style="font-size: 15px; font-family: OpenSans-Bold;margin-top: 20px;">
+                <b>We will be sending you content from the leading travel professionals in the business.</b>
+            </p>
+            <p style="font-family: OpenSans-Light;margin-top: 35px;">If you have any questions or comments about the content you’re receiving please email back and we will respond to your inquiry promptly.</p>
+            <p style="font-family: OpenSans-semibold;">TIM.DIGITAL</p>
+        </div>
+        <img width="100%" src="{{ asset('images/background_2.png') }}" alt="background_2">
+        <img style="position: absolute;left: 0;" width="100%" src="{{ asset('./images/about/background_2.png') }}" alt="background_2">
+        <img style="position: absolute;right: 25%;width: 40%;top: 14%;" src="{{ asset('./images/about/droid.png') }}" alt="droid">
+    </section>
+{% endblock %}

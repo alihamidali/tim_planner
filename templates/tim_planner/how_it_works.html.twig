@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block nav %}
+    <nav>
+        <ul class="nav text-light">
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('index') }}">Home</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('about') }}">About Us</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('media') }}">Media</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('advertise') }}">Advertise</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('contact') }}">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block section %}
+    <section class="main">
+        <div class="main-side-section p-4">
+            <h1 class="page-title bg-blue">HOW IT WORKS</h1>
+            <p class="f-bold">PRICING AND TIMELINE</p>
+            <p class="f-Semibold font-15 border-bottom pb-3">
+                Once you have completed the Registration Form, TIM.DIGITAL is ready to create your bespoke travel itinerary when you travel next to your favourite destination.
+                By a few simple clicks and information TIM.DIGITAL can develop your travel plan.
+            </p>
+
+            <div class="row">
+                <div class="col-md-6 p-0">
+                    <img src="{{ asset('images/how_it_works/Layer 17@2x.png') }}" class="card-img-top mb-2 w-90" alt="...">
+                    <div class="card-body p-0 bg-white w-90 mb-3">
+                        <h5 class="card-title f-bold text-center mb-1">Register</h5>
+                        <p class="card-text f-light-italic text-center pb-1">Your Details</p>
+                    </div>
+                </div>
+                <div class="col-md-6 p-0">
+                    <img src="{{ asset('images/how_it_works/Layer 18@2x.png') }}" class="card-img-top mb-2 w-90" alt="...">
+                    <div class="card-body p-0 bg-white w-90 mb-3">
+                        <h5 class="card-title f-bold text-center mb-1">Provide</h5>
+                        <p class="card-text f-light-italic text-center pb-1">Your Preferences</p>
+                    </div>
+                </div>
+                <div class="col-md-6 p-0">
+                    <img src="{{ asset('images/how_it_works/Layer 19@2x.png') }}" class="card-img-top mb-2 w-90" alt="...">
+                    <div class="card-body p-0 bg-white w-90 mb-3">
+                        <h5 class="card-title f-bold text-center mb-1">Details</h5>
+                        <p class="card-text f-light-italic text-center pb-1">Your Trip</p>
+                    </div>
+                </div>
+                <div class="col-md-6 p-0">
+                    <img src="{{ asset('images/how_it_works/Layer 20@2x.png') }}" class="card-img-top mb-2 w-90" alt="...">
+                    <div class="card-body p-0 bg-white w-90 mb-3">
+                        <h5 class="card-title f-bold text-center mb-1">TIM Plan</h5>
+                        <p class="card-text f-light-italic text-center pb-1">Generated</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img width="100%" src="{{ asset('images/background_2.png') }}" alt="background_2">
+        <img class="bg-gradient" src="{{ asset('images/about/background_2.png') }}" alt="about_background_2">
+    </section>
+{% endblock %}

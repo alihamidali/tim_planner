@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block nav %}
+    <nav>
+        <ul class="nav text-light">
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('index') }}">Home</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('about') }}">About Us</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('media') }}">Media</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('advertise') }}">Advertise</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex active">
+                <a class="nav-link px-2 text-light" href="{{ path('contact') }}">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block section %}
+
+    <section>
+        <div class="contact-section p-4">
+            <h1 class="page-title">Contact Us</h1>
+            <div class="row">
+                <div class="col">
+                    <img width="100%" src="{{ asset('./images/contact_us/map.png') }}" alt="map">
+                </div>
+                <div class="col">
+                    <h3 class="f-Semibold">HOW CAN WE HELP YOU?</h3>
+                    <form>
+                        <div class="mb-3">
+                            <label for="full_name" class="form-label">Full name</label>
+                            <input type="email" class="form-control" id="full_name" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="subject">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea rows="4" class="form-control" id="message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+                    </form>
+                </div>
+                <div class="col">
+                    <h3 class="f-Semibold">GET IN TOUCH WITH US</h3>
+                    <p class="f-light">To get in touch with TIM.DIGITAL, send us an email at ask@tim.digital or fill in the form and we will connect with you to assist you further.</p>
+                    <img src="{{ asset('./images/about/hr.png') }}" alt="hr">
+                    <h3 class="f-Semibold mt-2">OUR SUPPORT CENTER</h3>
+                    <p class="f-light">Our Team of experts will get answer your queries and we look forward connecting with you soon.</p>
+                    <img src="{{ asset('./images/about/hr.png') }}" alt="hr">
+                    <h3 class="f-Semibold mt-2">CONTACT INFORMATION</h3>
+                    <div class="py-2">
+                        <span class="contact-info-icon f-bold">T:</span>
+                        <span class="f-regular p-2">+971 50 275 9344</span>
+                    </div>
+                    <div class="py-2">
+                        <span class="contact-info-icon f-bold">E:</span>
+                        <span class="f-regular p-2">ask@tim.digital</span>
+                    </div>
+                    <div class="py-2">
+                        <img src="{{ asset('images/contact_us/location_pin.png') }}" alt="location_pin">
+                        <span class="f-regular p-2">UAE, Dubai</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img width="100%" src="{{ asset('./images/background_2.png') }}" alt="background_2">
+        <img style="position: absolute;left: 0;" width="100%" src="{{ asset('images/about/background_2.png') }}" alt="background_2">
+    </section>
+{% endblock %}

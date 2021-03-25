@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block nav %}
+    <nav>
+        <ul class="nav text-light">
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('index') }}">Home</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex active">
+                <a class="nav-link px-2 text-light" href="{{ path('about') }}">About Us</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('media') }}">Media</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('advertise') }}">Advertise</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('contact') }}">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block section %}
+    <section class="about">
+        <div class="about-section p-4">
+            <h1 class="page-title">About Us</h1>
+            <h3 class="my-3 f-Semibold">TIM.DIGITAL is the next generation digital travelling planning tool.</h3>
+            <img src="{{ asset('images/about/hr.png') }}" alt="hr">
+            <p class="about-assist f-bold mt-4">
+                <b>TIM.DIGITAL will assist you in your next trip and present a complete bespoke itinerary that matches your unique profile.</b>
+            </p>
+            <p class="about-team f-light mt-4">The team behind the TIM.DIGITAL organisation are made up of passionate business professionals, IT experts, social media enthusiasts and above all, we love travel.</p>
+            <div class="register">
+                <img class="register-gradient" src="{{ asset('images/about/register_button_gradiant.png') }}" alt="register_button_gradiant">
+                <a href="{{ path('register') }}" class="register-text">REGISTER HERE</a>
+                <img src="{{ asset('images/about/register_button.png') }}" alt="register_button">
+            </div>
+        </div>
+        <img width="100%" src="{{ asset('images/background_2.png') }}" alt="background_2">
+        <img class="bg-gradient" src="{{ asset('images/about/background_2.png') }}" alt="background_2">
+        <img class="about-devices" src="{{ asset('images/about/devices.png') }}" alt="devices">
+        <img class="about-droid" src="{{ asset('images/about/droid.png') }}" alt="droid">
+    </section>
+{% endblock %}

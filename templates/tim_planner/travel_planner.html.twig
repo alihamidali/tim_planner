@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block nav %}
+    <nav>
+        <ul class="nav text-light">
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('index') }}">Home</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('about') }}">About Us</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('media') }}">Media</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('advertise') }}">Advertise</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('contact') }}">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block section %}
+    <section>
+        <img width="100%" src="{{ asset('images/travel_planner/background1.png') }}" alt="background1">
+        <img style="position: absolute;right: 0;width: 72%;top: 12%;" src="{{ asset('images/travel_planner/droid.png') }}" alt="droid">
+        <div class="position-absolute top-18 p-3 ms-4 border border-primary border-3 border-top-0 border-bottom-0" style="background-color: #0040ff45;">
+            <form>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label text-white f-neuropol">DATE OF TRAVEL</label>
+                    <div class="d-flex flex-row text-white">
+                        <input type="date" class="form-control text-center bg-white text-dark f-regular w-auto" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        <span class="p-2">to</span>
+                        <input type="date" class="form-control text-center bg-white text-dark f-regular w-auto" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label text-white f-neuropol">TIME ALLOCATED PER DAY</label>
+                    <input type="text" class="form-control text-center bg-white text-dark f-regular w-50" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="hour">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label text-white f-neuropol">YOUR LOCATION</label>
+                    <textarea type="text" class="form-control text-center bg-white text-dark f-regular" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="address"></textarea>
+                </div>
+                <hr class="text-white" style="opacity: 1;">
+                <div class="text-center">
+                    <button type="submit" class="btn text-white bg-register w-50 p-2 rounded-3 f-neuropol">ACTIVATE TIM</button>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}

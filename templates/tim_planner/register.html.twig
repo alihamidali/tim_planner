@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block nav %}
+    <nav>
+        <ul class="nav text-light">
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('index') }}">Home</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('about') }}">About Us</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('media') }}">Media</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('advertise') }}">Advertise</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('contact') }}">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block section %}
+    <section>
+        <img width="100%" src="{{ asset('./images/register/background_1.png') }}">
+        <img style="position: absolute;left: 25%;width: 50%;top: 15%;" src="{{ asset('./images/register/droid_background.png') }}">
+        <img style="position: absolute;left: 36%;width: 23%;top: 15%;" src="{{ asset('./images/register/droid.png') }}">
+        <img style="position: absolute;left: 16%;width: 70%;top: 53%;" src="{{ asset('./images/register/droid_bar.png') }}">
+        <div style="position: absolute;font-family: 'neuropol';left: 21%;bottom: 13%;text-align: center;">
+            <h2 style="color: #4D4FFF">"The future of Travel Planning"</h2>
+            <div style="margin-top: 45px">
+                <a href="{{ path('business_register') }}" style="border: 1px solid #146f9f;background-image: linear-gradient(180deg, #146f9f66, transparent);color: white;font-size: 21px;padding: 18px 40px;border-radius: 12px;text-decoration: none; margin-right:7px;">BUSINESS REGISTRATION</a>
+                <a href="{{ path('travellers_registration') }}" style="border: 1px solid #146f9f;background-image: linear-gradient(180deg, #146f9f66, transparent);color: white;font-size: 21px;padding: 18px;border-radius: 12px;text-decoration: none;margin-left: 7px;">TRAVERLLERS REGISTRATION</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

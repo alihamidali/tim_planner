@@ -1,19 +1,57 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+    <script src="https://kit.fontawesome.com/1b619ef918.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<div class="container">
+    {% block body %}
+        <header class="navbar navbar-dark bg-dark">
+            <img class="ms-4" src="{{ asset('/images/logo.png') }}" alt="logo">
+            {% block nav %}
+                <nav>
+                    <ul class="nav text-light">
+                        <li class="nav-item d-inline-flex active">
+                            <a class="nav-link px-2 text-light" href="{{ path('index') }}">Home</a><span class="pt-2">|</span>
+                        </li>
+                        <li class="nav-item d-inline-flex">
+                            <a class="nav-link px-2 text-light" href="{{ path('about') }}">About Us</a><span class="pt-2">|</span>
+                        </li>
+                        <li class="nav-item d-inline-flex">
+                            <a class="nav-link px-2 text-light" href="{{ path('media') }}">Media</a><span class="pt-2">|</span>
+                        </li>
+                        <li class="nav-item d-inline-flex">
+                            <a class="nav-link px-2 text-light" href="{{ path('advertise') }}">Advertise</a><span class="pt-2">|</span>
+                        </li>
+                        <li class="nav-item d-inline-flex">
+                            <a class="nav-link px-2 text-light" href="{{ path('contact') }}">Contact Us</a>
+                        </li>
+                    </ul>
+                </nav>
+            {% endblock %}
+        </header>
+        {% block section %}
+
         {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+        <footer>
+            <div class="my-2 d-flex">
+                <div class="w-100"><img alt="banner" class="w-100" src="{{ asset('images/leaderboard_banner.png') }}"></div>
+                <div class="social-links">
+                    <img src="{{ asset('images/facebook.png') }}" alt="facebook">
+                    <img src="{{ asset('images/twitter.png') }}" alt="twitter">
+                    <img src="{{ asset('images/linkedin.png') }}" alt="linkedin">
+                    <img src="{{ asset('images/instagram.png') }}" alt="instagram">
+                </div>
+            </div>
+            <div class="py-3 ps-4 rights">TIM digital &#174. All rights reserve.</div>
+        </footer>
+    {% endblock %}
+</div>
+<script src="{{ asset('js/bootstrap.min.js') }}" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
 </html>

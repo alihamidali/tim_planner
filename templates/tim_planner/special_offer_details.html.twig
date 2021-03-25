@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block nav %}
+    <nav>
+        <ul class="nav text-light">
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('index') }}">Home</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('about') }}">About Us</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('media') }}">Media</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('advertise') }}">Advertise</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('contact') }}">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block section %}
+    <section class="main">
+        <div class="row">
+            <div class="card mb-3 w-100">
+                <div class="row g-0 p-5">
+                    <div class="col-md-4">
+                        <img src="{{ asset('images/offer/detail.png') }}" width="100%" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body text-dark f-light p-5">
+                            <h5 class="card-title">Title of the Offer</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis congue tellus eget auctor. Maecenas feugiat felis mi, et volutpat ipsum vehicula id. Donec luctus est magna, sed semper risus molestie ut. Fusce rhoncus finibus arcu sed facilisis. Donec interdum feugiat purus nec condimentum. Vivamus semper, lectus sed convallis malesuada, nisi nulla malesuada nibh, et cursu
+                                s ex nisi ac leo. Vestibulum vulputate diam eget nisi ma
+                                ximus tincidunt. Pellentesque cursus mi ac risus dignissim, sollicitudin vestibulum dolor ornare. Nunc aliquam luctus malesuada. Donec justo velit, pulvinar non congue at, luctus at dolor. Aliquam et nisi est. Integer molestie vel felis vel blandit. Etiam feugiat lacus feugiat, facilisis velit nec, tempor mi. In congue nibh sit amet rhoncus luctus.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img width="100%" src="{{ asset('images/background_2.png') }}" alt="background_2">
+        <img class="bg-gradient" src="{{ asset('images/about/background_2.png') }}" alt="about_background_2">
+    </section>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block nav %}
+    <nav>
+        <ul class="nav text-light">
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('index') }}">Home</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('about') }}">About Us</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('media') }}">Media</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex active">
+                <a class="nav-link px-2 text-light" href="{{ path('advertise') }}">Advertise</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('contact') }}">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block section %}
+    <section class="advertise">
+        <div class="advertise-section p-4">
+            <h1 class="page-title">ADVERTISE WITH US</h1>
+            <h3 class="f-Semibold text-center">Maximize your brand & company profile through a dedicated campaign</h3>
+            <img src="{{ asset('images/advertise/border.png') }}">
+            <p class="support-text f-Semibold mt-2 text-center">
+                TIM.DIGITAL supports your key products & services to reach the widest audience base.
+            </p>
+            <p class="text-center f-light mt-4">Please contact one of our sales staff to discuss these opportunities.</p>
+        </div>
+        <img width="100%" src="{{ asset('images/background_2.png') }}">
+        <div class="row advertise-advert">
+            <div class="card col-md-3 advertise-advert-item">
+                <img src="{{ asset('images/advertise/homepage.png') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title f-bold text-center">HOMEPAGE ADVERT</h5>
+                    <p class="card-text f-light text-center">Generate traffic on the main platform of <b>tim.digital</b></p>
+                    <a class="advertise-advert-btn" href="#">ADVERTISE</a>
+                </div>
+            </div>
+            <div class="card col-md-3 advertise-advert-item">
+                <img src="{{ asset('images/advertise/subpage.png') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title f-bold text-center">SUBPAGE ADVERT</h5>
+                    <p class="card-text f-light text-center">Additional opportunities to maximise your brand</p>
+                    <a class="advertise-advert-btn" href="#">ADVERTISE</a>
+                </div>
+            </div>
+            <div class="card col-md-3 advertise-advert-item">
+                <img src="{{ asset('images/advertise/news_letter.png') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title f-bold text-center">NEWSLETTER ADVERT</h5>
+                    <p class="card-text f-light text-center">Reach a dedicated a dedicated audience through this e newsletter</p>
+                    <a class="advertise-advert-btn" href="#">ADVERTISE</a>
+                </div>
+            </div>
+            <div class="card col-md-3 advertise-advert-item">
+                <img src="{{ asset('images/advertise/mobile_app.png') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title f-bold text-center">MOBILE APP ADVERT</h5>
+                    <p class="card-text f-light text-center">Support your campaign with a dedicated mobile platform.</p>
+                    <a class="advertise-advert-btn" href="#">ADVERTISE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

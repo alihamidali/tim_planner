@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block nav %}
+    <nav>
+        <ul class="nav text-light">
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('index') }}">Home</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('about') }}">About Us</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('media') }}">Media</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('advertise') }}">Advertise</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('contact') }}">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block section %}
+    <section class="main">
+        <div class="main-offer-header px-2 py-4 text-white">
+            <h1 class="page-title bg-blue px-3 border border-4 border-end-0 border-primary border-bottom-0 border-top-0" style="width: fit-content;">SPECIAL OFFER</h1>
+            <p class="f-bold px-3 pt-2">PRICING AND TIMELINE</p>
+            <p class="f-Semibold font-15 pb-3 px-3 w-75">
+                Once you have completed the Registration Form, TIM.DIGITAL is ready to create your bespoke travel itinerary when you travel next to your favourite destination.
+                By a few simple clicks and information TIM.DIGITAL can develop your travel plan.
+            </p>
+        </div>
+        <div class="main-offer-body">
+            <div class="row">
+                <div class="card mb-6 me-2" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-6">
+                            <img src="{{ asset('./images/offer/register_here.png') }}" width="95%" alt="...">
+                        </div>
+                        <div class="col-md-6 position-relative">
+                            <div class="card-body">
+                                <p class="card-text f-light pt-5">TRAVELLERS: Register for FREE to start using the TIM TRAVEL ITINERARY PLATFORM!</p>
+                            </div>
+                            <a href="{{ path('special_offer_details') }}" class="text-decoration-none text-dark f-light position-absolute right-0 bottom-5">View <span class="px-2 text-white bg-primary">></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-6 ms-2" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-6">
+                            <img src="{{ asset('images/offer/register_here.png') }}" width="95%" alt="...">
+                        </div>
+                        <div class="col-md-6 position-relative">
+                            <div class="card-body">
+                                <p class="card-text f-light pt-5">BUSINESSES: Register now to qualify for the EARLY BIRD OFFER!</p>
+                            </div>
+                            <a href="{{ path('special_offer_details') }}" class="text-decoration-none text-dark f-light position-absolute right-0 bottom-5">View <span class="px-2 text-white bg-primary">></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img width="100%" src="{{ asset('images/background_2.png') }}" alt="background_2">
+        <img class="bg-gradient" src="{{ asset('images/about/background_2.png') }}" alt="about_background_2">
+    </section>
+{% endblock %}
