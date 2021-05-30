@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,7 +20,7 @@ class City
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -41,6 +42,14 @@ class City
      * @ORM\Column(name="description", type="string", length=500, nullable=true)
      */
     private $description;
+
+
+    /**
+     * @var Collection
+     *
+     * @ORM\OneToMany(targetEntity="Business", mappedBy="city")
+     */
+    private $businesses;
 
     /**
      * @return int

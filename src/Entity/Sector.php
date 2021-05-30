@@ -37,6 +37,13 @@ class Sector
     private $businesses;
 
     /**
+     * @var Collection
+     *
+     * @ORM\OneToMany(targetEntity="Traveller", mappedBy="favoriteHangoutPlace")
+     */
+    private $travellerFavorites;
+
+    /**
      * @return int
      */
     public function getId(): int

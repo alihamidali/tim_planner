@@ -1,0 +1,167 @@
+{% extends 'base.html.twig' %}
+
+{% block nav %}
+    <nav>
+        <ul class="nav text-light">
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('index') }}">Home</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('about') }}">About Us</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('media') }}">Media</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('advertise') }}">Advertise</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('contact') }}">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block section %}
+    <section>
+        <img width="100%" src="{{ asset('images/register/business/background.svg') }}" alt="background">
+        <img style="position: absolute;left: 0;width: 100%;" src="{{ asset('images/register/business/business_register.svg') }}" alt="business_register">
+        <div style="position: absolute;font-family: 'neuropol';left: 27%;top: 32%;text-align: center;">
+            <h2 class="px-5" style="color: #4D4FFF">"The future of Travel Planning"</h2>
+            <div style="margin-top: 45px;border-top: 4px solid blue;padding: 30px;background: #0d111dfc;background-image: linear-gradient(180deg, #ffffff00, #0095ff6e);">
+                {{ form_start(travellerRegistrationForm) }}
+                <div class="text-danger">
+                    {{ form_errors(travellerRegistrationForm) }}
+                </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-user fa-2x pe-2"></i>
+                            {{ form_label(travellerRegistrationForm.firstName) }}
+                        </span>
+                        {{ form_widget(travellerRegistrationForm.firstName, {'attr': {'class': 'form-control bg-secondary text-light f-regular'}}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-user fa-2x pe-2"></i>
+                            {{ form_label(travellerRegistrationForm.lastName) }}
+                        </span>
+                        {{ form_widget(travellerRegistrationForm.lastName, {'attr': {'class': 'form-control bg-secondary text-light f-regular'}}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-user fa-2x pe-2"></i>
+                            {{ form_label(travellerRegistrationForm.userName) }}
+                        </span>
+                        {{ form_widget(travellerRegistrationForm.userName, {'attr': {'class': 'form-control bg-secondary text-light f-regular'}}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-calendar-alt fa-2x pe-2"></i>
+                            {{ form_label(travellerRegistrationForm.dateOfBirth) }}
+                        </span>
+                        {{ form_widget(travellerRegistrationForm.dateOfBirth, {'attr': {'class': 'form-control bg-secondary text-light f-regular', 'aria-describedby': 'inputGroup-sizing-default'}}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-flag fa-2x pe-2"></i>
+                            {{ form_label(travellerRegistrationForm.nationality) }}
+                        </span>
+                        {{ form_widget(travellerRegistrationForm.nationality, {'attr': {'class': 'form-control bg-secondary text-light f-regular', 'aria-describedby': 'inputGroup-sizing-default'}}) }}
+                    </div>
+                    <div class="input-group f-neuropol font-12 text-label-grey border-0 bg-blue mb-3 rounded p-2 pb-0">
+                        {{ form_widget(travellerRegistrationForm.gender, {'attr': {'class': 'form-check form-check-inline', 'aria-describedby': 'inputGroup-sizing-default'}}) }}
+{#                        {% for child in travellerRegistrationForm.gender %}#}
+{#                            <div class="form-check form-check-inline">#}
+{#                                <input class="form-check-input" type="radio" name="{{ travellerRegistrationForm.vars.id ~ '[' ~ travellerRegistrationForm.gender.vars.name ~ ']' }}" id="{{ travellerRegistrationForm.vars.id ~ '[' ~ travellerRegistrationForm.gender.vars.name ~ ']' }}" value="{{ child.vars.label }}">#}
+{#                                <label class="form-check-label f-neuropol" for="inlineRadio1">{{ child.vars.label }}</label>#}
+{#                            </div>#}
+{#                        {% endfor %}#}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="far fa-image fa-2x pe-2"></i>
+                            {{ form_label(travellerRegistrationForm.photo) }}
+                        </span>
+                        {{ form_widget(travellerRegistrationForm.photo, {'attr': {'class': 'form-control bg-secondary text-light f-regular'}}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="far fa-envelope fa-2x pe-2"></i>
+                            {{ form_label(travellerRegistrationForm.email) }}
+                        </span>
+                        {{ form_widget(travellerRegistrationForm.email, {'attr': {'class': 'form-control bg-secondary text-light f-regular'}}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-key fa-2x pe-2"></i>
+                            {{ form_label(travellerRegistrationForm.plainPassword) }}
+                        </span>
+                        {{ form_widget(travellerRegistrationForm.plainPassword, {'attr': {'class': 'form-control bg-secondary text-light f-regular'}}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-phone-alt fa-2x pe-2"></i>
+                            {{ form_label(travellerRegistrationForm.phoneNo) }}
+                        </span>
+                        {{ form_widget(travellerRegistrationForm.phoneNo, {'attr': {'class': 'form-control bg-secondary text-light f-regular'}}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-mobile fa-2x pe-2"></i>
+                            {{ form_label(travellerRegistrationForm.mobileNo) }}
+                        </span>
+                        {{ form_widget(travellerRegistrationForm.mobileNo, {'attr': {'class': 'form-control bg-secondary text-light f-regular'}}) }}
+                    </div>
+                    <div class="input-group f-neuropol font-12 text-label-grey border-0 bg-blue mb-3 rounded p-2 pb-0">
+                        {{ form_widget(travellerRegistrationForm.travellerCategory, {'attr': {'class': 'form-check form-check-inline', 'aria-describedby': 'inputGroup-sizing-default'}}) }}
+{#                        {% for child in travellerRegistrationForm.travellerCategory %}#}
+{#                            <div class="form-check form-check-inline">#}
+{#                                <input class="form-check-input" type="radio" name="{{ travellerRegistrationForm.vars.id ~ '[' ~ travellerRegistrationForm.travellerCategory.vars.name ~ ']' }}" id="{{ travellerRegistrationForm.vars.id ~ '[' ~ travellerRegistrationForm.travellerCategory.vars.name ~ ']' }}" value="{{ child.vars.label }}">#}
+{#                                <label class="form-check-label f-neuropol" for="inlineRadio1">{{ child.vars.label }}</label>#}
+{#                            </div>#}
+{#                        {% endfor %}#}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-globe fa-2x pe-2"></i>
+                            Top 5 City<br>Destination
+                        </span>
+                        {{ form_widget(travellerRegistrationForm.city, {'attr': {'class': 'form-control bg-secondary text-light f-regular'}}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-glass-cheers fa-2x pe-2"></i>
+                            Favorite<br>Hangout place
+                        </span>
+                        {{ form_widget(travellerRegistrationForm.favoriteHangoutPlace, {'attr': {'class': 'form-control bg-secondary text-light f-regular'}}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-utensils fa-2x pe-2"></i>
+                            {{ form_label(travellerRegistrationForm.favoriteCuisine) }}
+                        </span>
+                        {{ form_widget(travellerRegistrationForm.favoriteCuisine, {'attr': {'class': 'form-control bg-secondary text-light f-regular'}}) }}
+                    </div>
+                    <div class="input-group mb-3">
+							<span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+								<i class="fas fa-suitcase fa-2x pe-2"></i>
+								Dream Holiday
+							</span>
+                        <input type="text" class="form-control bg-secondary text-light f-regular" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <div class="input-group mb-3 mt-5">
+                        <button type="submit" class="mx-auto btn text-white bg-register w-50">REGISTER USING FACEBOOK</button>
+                    </div>
+                    <div class="input-group mb-5">
+                        <button type="submit" class="mx-auto btn text-white bg-register w-50">REGISTER USING GOOGLE</button>
+                    </div>
+                    {{ form_row(travellerRegistrationForm.submit, { 'label': 'REGISTER', 'attr': {'class': 'btn text-white bg-register w-50 p-2 rounded-3'} }) }}
+                {{ form_end(travellerRegistrationForm) }}
+            </div>
+        </div>
+        <div style="position: absolute;left: 0%;bottom: 0%;">
+            <img class="w-100" src="{{ asset('images/register/business/footer.png') }}">
+        </div>
+    </section>
+{% endblock %}

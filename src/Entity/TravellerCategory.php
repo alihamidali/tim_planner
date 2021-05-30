@@ -20,7 +20,7 @@ class TravellerCategory
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -36,5 +36,44 @@ class TravellerCategory
      */
     private $travellers;
 
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getTravellers(): Collection
+    {
+        return $this->travellers;
+    }
+
+    /**
+     * @param Collection $travellers
+     */
+    public function setTravellers(Collection $travellers): void
+    {
+        $this->travellers = $travellers;
+    }
 
 }

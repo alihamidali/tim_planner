@@ -117,13 +117,9 @@ class Business implements UserInterface
     private $companyLogo;
 
     /**
-     * @var Collection
+     * @var City
      *
-     * @ORM\ManyToMany(targetEntity="City")
-     * @ORM\JoinTable(name="business_cities",
-     *     joinColumns={@ORM\JoinColumn(name="city_id", referencedColumnName="id")},
-     *     inverseJoinColumns={@ORM\JoinColumn(name="business_id", referencedColumnName="id")}
-     * )
+     * @ORM\ManyToOne(targetEntity="City", inversedBy="")
      */
     private $city;
 
@@ -154,7 +150,7 @@ class Business implements UserInterface
 
     public function getRoles()
     {
-        return ['ROLE_USER'];
+        return ['ROLE_BUSINESS'];
     }
 
     public function getPassword()

@@ -20,7 +20,8 @@ class AppCustomAuthenticator extends AbstractFormLoginAuthenticator
 {
     use TargetPathTrait;
 
-    public const LOGIN_ROUTE = 'business_login';
+    public const BUSINESS_LOGIN_ROUTE = 'business_login';
+    public const TRAVELLER_LOGIN_ROUTE = 'traveller_login';
 
     private $urlGenerator;
     private $csrfTokenManager;
@@ -33,8 +34,11 @@ class AppCustomAuthenticator extends AbstractFormLoginAuthenticator
 
     public function supports(Request $request)
     {
-        return self::LOGIN_ROUTE === $request->attributes->get('_route')
-            && $request->isMethod('POST');
+        return (
+            self::BUSINESS_LOGIN_ROUTE === $request->attributes->get('_route') && $request->isMethod('POST')
+            ) || (
+                self::TRAVELLER_LOGIN_ROUTE === $request->attributes->get('_route') && $request->isMethod('POST')
+            );
     }
 
     public function getCredentials(Request $request)
@@ -84,13 +88,16 @@ class AppCustomAuthenticator extends AbstractFormLoginAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
-         return new RedirectResponse($this->urlGenerator->generate('business_dashboard'));
+        if (self::BUSINESS_LOGIN_ROUTE === $request->attributes->get('_route')) {
+            return new RedirectResponse($this->urlGenerator->generate('business_dashboard'));
+        } else {
+            return new RedirectResponse($this->urlGenerator->generate('traveller_dashboard'));
+        }
 //        throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 
     protected function getLoginUrl()
     {
-        return $this->urlGenerator->generate(self::LOGIN_ROUTE);
+        return $this->urlGenerator->generate(self::BUSINESS_LOGIN_ROUTE);
     }
 }

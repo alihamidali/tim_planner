@@ -28,7 +28,7 @@
             <div class="position-absolute left-0 d-flex flex-column p-4" style="width: 35%;top:50px;">
                 <div class="d-flex flex-row" style="width: 435px;">
                     <a href="#" onclick="alert('This will play video.')"><img src="{{ asset('images/index/video_button.png') }}" alt="video_button" class="w-100"></a>
-                    <a href="{{ path('login') }}" class="p-2"><img src="{{ asset('images/index/business_login.png') }}" alt="business_login" class="w-100"></a>
+                    <a href="{{ path('business_login') }}" class="p-2"><img src="{{ asset('images/index/business_login.png') }}" alt="business_login" class="w-100"></a>
                 </div>
                 <div class="d-flex flex-row" style="width: 360px;">
                     <a href="{{ path('how_it_works') }}"><img src="{{ asset('images/index/how_It_works.png') }}" alt="how_It_works" class="w-92"></a>
@@ -38,11 +38,11 @@
             <div class="position-absolute right-0 d-flex flex-column" style="width: 35%;top:50px;">
                 <a href="{{ path('travel_planner') }}"><img src="{{ asset('images/index/travel_planner_button.png') }}" alt="travel_planner_button" class="w-92"></a>
                 <div class="d-flex flex-row" style="width: 360px;">
-                    <a href="{{ path('business_register') }}"><img src="{{ asset('images/index/new_registration_button.png') }}" alt="new_registration_button" class="w-92"></a>
+                    <a href="{{ path('register') }}"><img src="{{ asset('images/index/new_registration_button.png') }}" alt="new_registration_button" class="w-92"></a>
                     <a href="{{ path('city_guide') }}"><img src="{{ asset('images/index/city_guide_button.png') }}" alt="city_guide_button" class="w-92"></a>
                 </div>
                 <div class="d-flex flex-row" style="width: 360px;">
-                    <a href="{{ path('login') }}"><img src="{{ asset('images/index/travellers_login.png') }}" alt="travellers_login" class="w-92"></a>
+                    <a href="{{ path('traveller_login') }}"><img src="{{ asset('images/index/travellers_login.png') }}" alt="travellers_login" class="w-92"></a>
                     <a href="{{ path('special_offer') }}"><img src="{{ asset('images/index/special_offer.png') }}" alt="special_offer" class="w-92"></a>
                 </div>
             </div>

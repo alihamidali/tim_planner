@@ -89,15 +89,15 @@ class RegistrationController extends AbstractController
     public function travellerRegister(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, AppCustomAuthenticator $authenticator): Response
     {
         $user = new Traveller();
-        $form = $this->createForm(TravelRegistrationFormType::class, $user);
-        $form->handleRequest($request);
+        $registrationForm = $this->createForm(TravelRegistrationFormType::class, $user);
+        $registrationForm->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($registrationForm->isSubmitted() && $registrationForm->isValid()) {
             // encode the plain password
             $user->setPassword(
                 $passwordEncoder->encodePassword(
                     $user,
-                    $form->get('plainPassword')->getData()
+                    $registrationForm->get('plainPassword')->getData()
                 )
             );
 
@@ -106,13 +106,13 @@ class RegistrationController extends AbstractController
             $entityManager->flush();
 
             // generate a signed url and email it to the user
-            $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
-                (new TemplatedEmail())
-                    ->from(new Address('no-reply@timdigital.com', 'Tim'))
-                    ->to($user->getEmail())
-                    ->subject('Please Confirm your Email')
-                    ->htmlTemplate('registration/confirmation_email.html.twig')
-            );
+//            $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
+//                (new TemplatedEmail())
+//                    ->from(new Address('no-reply@timdigital.com', 'Tim'))
+//                    ->to($user->getEmail())
+//                    ->subject('Please Confirm your Email')
+//                    ->htmlTemplate('registration/confirmation_email.html.twig')
+//            );
             // do anything else you need here, like send an email
 
             return $guardHandler->authenticateUserAndHandleSuccess(
@@ -124,7 +124,7 @@ class RegistrationController extends AbstractController
         }
 
         return $this->render('registration/traveller_register.html.twig', [
-            'registrationForm' => $form->createView(),
+            'travellerRegistrationForm' => $registrationForm->createView(),
         ]);
     }
 

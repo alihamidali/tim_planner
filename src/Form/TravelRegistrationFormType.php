@@ -5,94 +5,53 @@ namespace App\Form;
 use App\Entity\Business;
 use App\Entity\City;
 use App\Entity\Country;
+use App\Entity\Cuisines;
 use App\Entity\Sector;
+use App\Entity\Traveller;
+use App\Entity\TravellerCategory;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RadioType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class BusinessRegistrationFormType extends AbstractType
+class TravelRegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fullName', TextType::class, [
-                'label' => 'Full Name',
-                'invalid_message' => 'You entered an invalid fullName value',
+            ->add('firstName', TextType::class, [
+                'label' => 'First Name',
+                'invalid_message' => 'You entered an invalid first name value',
+                'error_bubbling' => true,
+            ])
+            ->add('lastName', TextType::class, [
+                'label' => 'Last Name',
+                'invalid_message' => 'You entered an invalid last name value',
                 'error_bubbling' => true,
             ])
             ->add('userName', TextType::class, [
                 'label' => 'Username',
-                'invalid_message' => 'You entered an invalid userName value',
+                'invalid_message' => 'You entered an invalid user name value',
                 'error_bubbling' => true,
             ])
-            ->add('designation', TextType::class, [
-                'label' => 'Designation',
-                'invalid_message' => 'You entered an invalid designation value',
+            ->add('dateOfBirth', DateType::class, [
+                'label' => 'Date of Birth',
+                'widget' => 'single_text',
+                'invalid_message' => 'You entered an invalid date of birth value',
                 'error_bubbling' => true,
-            ])
-            ->add('companyName', TextType::class, [
-                'label' => 'Company Name',
-                'invalid_message' => 'You entered an invalid companyName value',
-                'error_bubbling' => true,
-            ])
-            ->add('companyWebsite', TextType::class, [
-                'label' => 'Company Website',
-                'invalid_message' => 'You entered an invalid companyWebsite value',
-                'error_bubbling' => true,
-            ])
-            ->add('companyLogo', FileType::class, [
-                'label' => 'Company Logo',
-                'invalid_message' => 'You entered an invalid companyLogo value',
-                'error_bubbling' => true,
-            ])
-            ->add('sector', EntityType::class, [
-                'label' => 'Sector',
-                'invalid_message' => 'You entered an invalid sector value',
-                'error_bubbling' => true,
-                'class' => Sector::class,
-                'choice_label' => 'name',
-                'placeholder' => 'Select Business Sector',
-            ])
-            ->add('address1', TextType::class, [
-                'label' => 'Address 1',
-                'invalid_message' => 'You entered an invalid address1 value',
-                'error_bubbling' => true
-            ])
-            ->add('address2', TextType::class, [
-                'label' => 'Address 2',
-                'invalid_message' => 'You entered an invalid address2 value',
-                'error_bubbling' => true
-            ])
-            ->add('address3', TextType::class, [
-                'label' => 'Address 3',
-                'invalid_message' => 'You entered an invalid address3 value',
-                'error_bubbling' => true
-            ])
-            ->add('country', EntityType::class, [
-                'label' => 'Country',
-                'invalid_message' => 'You entered an invalid country value',
-                'error_bubbling' => true,
-                'class' => Country::class,
-                'choice_label' => 'countryName',
-                'placeholder' => 'Select Country',
-                'property_path' => 'nationality'
-            ])
-            ->add('city', EntityType::class, [
-                'label' => 'City',
-                'invalid_message' => 'You entered an invalid city value',
-                'error_bubbling' => true,
-                'class' => City::class,
-                'choice_label' => 'name',
-                'placeholder' => 'Select City',
             ])
             ->add('nationality', EntityType::class, [
                 'label' => 'Nationality',
@@ -101,7 +60,20 @@ class BusinessRegistrationFormType extends AbstractType
                 'class' => Country::class,
                 'choice_label' => 'nationality',
                 'placeholder' => 'Select Nationality',
-                'property_path' => 'nationality'
+            ])
+            ->add('gender', ChoiceType::class, [
+                'invalid_message' => 'You entered an invalid gender value',
+                'error_bubbling' => true,
+                'choices' => [
+                    'Male' => 'male',
+                    'Female' => 'female'
+                ],
+                'expanded' => true
+            ])
+            ->add('photo', FileType::class, [
+                'label' => 'Profile Photo',
+                'invalid_message' => 'You entered an invalid photo value',
+                'error_bubbling' => true,
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Email Address',
@@ -117,6 +89,35 @@ class BusinessRegistrationFormType extends AbstractType
                 'label' => 'Mobile Number',
                 'invalid_message' => 'You entered an invalid mobileNo value',
                 'error_bubbling' => true,
+            ])
+            ->add('travellerCategory', EntityType::class, [
+                'class' => TravellerCategory::class,
+                'choice_label' => 'name',
+                'invalid_message' => 'You entered an invalid travel category value',
+                'error_bubbling' => true,
+                'expanded' => true,
+            ])
+            ->add('city', EntityType::class, [
+                'class' => City::class,
+                'choice_label' => 'name',
+                'invalid_message' => 'You entered an invalid city value',
+                'error_bubbling' => true,
+                'multiple' => true,
+                'placeholder' => '',
+            ])
+            ->add('favoriteHangoutPlace', EntityType::class, [
+                'class' => Sector::class,
+                'choice_label' => 'name',
+                'invalid_message' => 'You entered an invalid favorite hangout place value',
+                'error_bubbling' => true,
+                'placeholder' => '',
+            ])
+            ->add('favoriteCuisine', ChoiceType::class, [
+                'label' => 'Favorite Cuisine',
+                'choices' => Cuisines::ALL_CUISINES,
+                'invalid_message' => 'You entered an invalid favorite cuisines value',
+                'error_bubbling' => true,
+                'placeholder' => '',
             ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
@@ -145,7 +146,7 @@ class BusinessRegistrationFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Business::class,
+            'data_class' => Traveller::class,
         ]);
     }
 }
