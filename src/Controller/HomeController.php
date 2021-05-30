@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Business;
+use App\Form\BusinessRegistrationFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -50,56 +52,6 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/contact_us", name="contact")
-     * @param Request $request
-     * @return Response
-     */
-    public function contact(Request $request): Response
-    {
-        return $this->render('tim_planner/contact_us.html.twig');
-    }
-
-    /**
-     * @Route("/login", name="login")
-     * @param Request $request
-     * @return Response
-     */
-    public function login(Request $request): Response
-    {
-        return $this->render('tim_planner/login.html.twig');
-    }
-
-    /**
-     * @Route("/register", name="register")
-     * @param Request $request
-     * @return Response
-     */
-    public function register(Request $request): Response
-    {
-        return $this->render('tim_planner/register.html.twig');
-    }
-
-    /**
-     * @Route("/business_register", name="business_register")
-     * @param Request $request
-     * @return Response
-     */
-    public function businessRegister(Request $request): Response
-    {
-        return $this->render('tim_planner/business_register.html.twig');
-    }
-
-    /**
-     * @Route("/travellers_registration", name="travellers_registration")
-     * @param Request $request
-     * @return Response
-     */
-    public function travellersRegistration(Request $request): Response
-    {
-        return $this->render('tim_planner/travellers_registration.html.twig');
-    }
-
-    /**
      * @Route("/how_it_works", name="how_it_works")
      * @param Request $request
      * @return Response
@@ -127,16 +79,6 @@ class HomeController extends AbstractController
     public function travelPlanner(Request $request): Response
     {
         return $this->render('tim_planner/travel_planner.html.twig');
-    }
-
-    /**
-     * @Route("/city_guide", name="city_guide")
-     * @param Request $request
-     * @return Response
-     */
-    public function cityGuide(Request $request): Response
-    {
-        return $this->render('tim_planner/city_guide.html.twig');
     }
 
     /**

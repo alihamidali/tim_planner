@@ -19,7 +19,7 @@ class Country
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -49,5 +49,76 @@ class Country
      */
     private $nationality;
 
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCodeOne(): string
+    {
+        return $this->codeOne;
+    }
+
+    /**
+     * @param string $codeOne
+     */
+    public function setCodeOne(string $codeOne): void
+    {
+        $this->codeOne = $codeOne;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCodeTwo(): string
+    {
+        return $this->codeTwo;
+    }
+
+    /**
+     * @param string $codeTwo
+     */
+    public function setCodeTwo(string $codeTwo): void
+    {
+        $this->codeTwo = $codeTwo;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountryName(): string
+    {
+        return $this->countryName;
+    }
+
+    /**
+     * @param string $countryName
+     */
+    public function setCountryName(string $countryName): void
+    {
+        $this->countryName = $countryName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNationality(): string
+    {
+        return $this->nationality;
+    }
+
+    /**
+     * @param string $nationality
+     */
+    public function setNationality(string $nationality): void
+    {
+        $this->nationality = $nationality;
+    }
 
 }

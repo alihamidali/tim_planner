@@ -1,0 +1,170 @@
+{% extends 'base.html.twig' %}
+
+{% block nav %}
+    <nav>
+        <ul class="nav text-light">
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('index') }}">Home</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('about') }}">About Us</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('media') }}">Media</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('advertise') }}">Advertise</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('contact') }}">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block section %}
+
+    <section>
+        <img width="100%" src="{{ asset('./images/register/business/background.svg') }}" alt="background">
+        <img style="position: absolute;left: 0;width: 100%;" src="{{ asset('./images/register/business/business_register.svg') }}" alt="business_register">
+        <div style="position: absolute;font-family: 'neuropol';left: 27%;top: 32%;text-align: center;">
+            <h2 class="px-5" style="color: #4D4FFF">"The future of Travel Planning"</h2>
+            <div style="margin-top: 45px;border-top: 4px solid blue;padding: 30px;background: #0d111dfc;background-image: linear-gradient(180deg, #ffffff00, #0095ff6e);">
+                {{ form_start(businessRegistrationForm) }}
+                <div class="text-danger">
+                    {{ form_errors(businessRegistrationForm) }}
+                </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-user fa-2x pe-2"></i>
+                            {{ form_label(businessRegistrationForm.fullName) }}
+                        </span>
+                        {{ form_widget(businessRegistrationForm.fullName, { 'attr': { 'class': 'form-control bg-secondary text-light f-regular', 'aria-describedby': 'inputGroup-sizing-default' }}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-user fa-2x pe-2"></i>
+                            {{ form_label(businessRegistrationForm.userName) }}
+                        </span>
+                        {{ form_widget(businessRegistrationForm.userName, { 'attr': { 'class': 'form-control bg-secondary text-light f-regular', 'aria-describedby': 'inputGroup-sizing-default' }}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-briefcase fa-2x pe-2"></i>
+                            {{ form_label(businessRegistrationForm.designation) }}
+                        </span>
+                        {{ form_widget(businessRegistrationForm.designation, { 'attr': { 'class': 'form-control bg-secondary text-light f-regular', 'aria-describedby': 'inputGroup-sizing-default' }}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-book-open fa-2x pe-2"></i>
+                            {{ form_label(businessRegistrationForm.companyName) }}
+                        </span>
+                        {{ form_widget(businessRegistrationForm.companyName, { 'attr': { 'class': 'form-control bg-secondary text-light f-regular', 'aria-describedby': 'inputGroup-sizing-default' }}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-globe fa-2x pe-2"></i>
+                            {{ form_label(businessRegistrationForm.companyWebsite) }}
+                        </span>
+                        {{ form_widget(businessRegistrationForm.companyWebsite, { 'attr': { 'class': 'form-control bg-secondary text-light f-regular', 'aria-describedby': 'inputGroup-sizing-default' }}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-image fa-2x pe-2"></i>
+                            {{ form_label(businessRegistrationForm.companyLogo) }}
+                        </span>
+                        {{ form_widget(businessRegistrationForm.companyLogo, { 'attr': { 'class': 'form-control bg-secondary text-light f-regular', 'aria-describedby': 'inputGroup-sizing-default' }}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-image fa-2x pe-2"></i>
+                            {{ form_label(businessRegistrationForm.sector) }}
+                        </span>
+                        {{ form_widget(businessRegistrationForm.sector, { 'attr': { 'class': 'form-control bg-secondary text-light f-regular', 'aria-describedby': 'inputGroup-sizing-default' }}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-envelope fa-2x pe-2"></i>
+                            {{ form_label(businessRegistrationForm.address1) }}
+                        </span>
+                        {{ form_widget(businessRegistrationForm.address1, { 'attr': { 'class': 'form-control bg-secondary text-light f-regular', 'aria-describedby': 'inputGroup-sizing-default' }}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-envelope fa-2x pe-2"></i>
+                            {{ form_label(businessRegistrationForm.address2) }}
+                        </span>
+                        {{ form_widget(businessRegistrationForm.address2, { 'attr': { 'class': 'form-control bg-secondary text-light f-regular', 'aria-describedby': 'inputGroup-sizing-default' }}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-envelope fa-2x pe-2"></i>
+                            {{ form_label(businessRegistrationForm.address3) }}
+                        </span>
+                        {{ form_widget(businessRegistrationForm.address3, { 'attr': { 'class': 'form-control bg-secondary text-light f-regular', 'aria-describedby': 'inputGroup-sizing-default' }}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-flag fa-2x pe-2"></i>
+                            {{ form_label(businessRegistrationForm.country) }}
+                        </span>
+                        {{ form_widget(businessRegistrationForm.country, { 'attr': { 'class': 'form-control bg-secondary text-light f-regular', 'aria-describedby': 'inputGroup-sizing-default' }}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-city fa-2x pe-2"></i>
+                            {{ form_label(businessRegistrationForm.city) }}
+                        </span>
+                        {{ form_widget(businessRegistrationForm.city, { 'attr': { 'class': 'form-control bg-secondary text-light f-regular', 'aria-describedby': 'inputGroup-sizing-default' }}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-flag fa-2x pe-2"></i>
+                            {{ form_label(businessRegistrationForm.nationality) }}
+                        </span>
+                        {{ form_widget(businessRegistrationForm.nationality, { 'attr': { 'class': 'form-select bg-secondary text-light f-regular border-0', 'aria-describedby': 'inputGroup-sizing-default' }}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-phone-alt fa-2x pe-2"></i>
+                            {{ form_label(businessRegistrationForm.phoneNo) }}
+                        </span>
+                        {{ form_widget(businessRegistrationForm.phoneNo, { 'attr': { 'class': 'form-control bg-secondary text-light f-regular', 'aria-describedby': 'inputGroup-sizing-default' }}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-mobile fa-2x pe-2"></i>
+                            {{ form_label(businessRegistrationForm.mobileNo) }}
+                        </span>
+                        {{ form_widget(businessRegistrationForm.mobileNo, { 'attr': { 'class': 'form-control bg-secondary text-light f-regular', 'aria-describedby': 'inputGroup-sizing-default' }}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-envelope fa-2x pe-2"></i>
+                            {{ form_label(businessRegistrationForm.email) }}
+                        </span>
+                        {{ form_widget(businessRegistrationForm.email, { 'attr': { 'class': 'form-control bg-secondary text-light f-regular', 'aria-describedby': 'inputGroup-sizing-default' }}) }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text w-30 f-neuropol font-12 text-label-grey border-0 bg-blue me-1" id="inputGroup-sizing-default">
+                            <i class="fas fa-key fa-2x pe-2"></i>
+                            {{ form_label(businessRegistrationForm.plainPassword) }}
+                        </span>
+                        {{ form_widget(businessRegistrationForm.plainPassword, { 'attr': { 'class': 'form-control bg-secondary text-light f-regular', 'aria-describedby': 'inputGroup-sizing-default' }}) }}
+                    </div>
+                    <div class="input-group mb-3 mt-5">
+                        <button type="submit" class="mx-auto btn text-white bg-register w-50">REGISTER USING FACEBOOK</button>
+                    </div>
+                    <div class="input-group mb-5">
+                        <button type="submit" class="mx-auto btn text-white bg-register w-50">REGISTER USING GOOGLE</button>
+                    </div>
+                    {{ form_widget(businessRegistrationForm.submit, { 'label': 'REGISTER', 'attr': { 'class': 'btn text-white bg-register w-50 p-2 rounded-3', 'aria-describedby': 'inputGroup-sizing-default' }}) }}
+                {{ form_end(businessRegistrationForm) }}
+            </div>
+        </div>
+        <div style="position: absolute;left: 0%;bottom: 0%;">
+            <img class="w-100" src="{{ asset('images/register/business/footer.png') }}">
+        </div>
+    </section>
+{% endblock %}

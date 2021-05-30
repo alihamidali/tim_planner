@@ -35,6 +35,20 @@ class Business implements UserInterface
     /**
      * @var string
      *
+     * @ORM\Column(name="full_name", type="string", length=300, nullable=false)
+     */
+    private $fullName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="user_name", type="string", length=300, nullable=false)
+     */
+    private $userName;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="designation", type="string", length=300, nullable=false)
      */
     private $designation;
@@ -140,7 +154,7 @@ class Business implements UserInterface
 
     public function getRoles()
     {
-        // TODO: Implement getRoles() method.
+        return ['ROLE_USER'];
     }
 
     public function getPassword()
@@ -153,9 +167,20 @@ class Business implements UserInterface
         // TODO: Implement getSalt() method.
     }
 
+    /**
+     * @return string
+     */
     public function getUsername()
     {
-        // TODO: Implement getUsername() method.
+        return $this->userName;
+    }
+
+    /**
+     * @param string $userName
+     */
+    public function setUserName(string $userName): void
+    {
+        $this->userName = $userName;
     }
 
     public function eraseCredentials()
@@ -340,9 +365,9 @@ class Business implements UserInterface
     }
 
     /**
-     * @return Collection
+     * @return Collection|null
      */
-    public function getCity(): Collection
+    public function getCity(): ?Collection
     {
         return $this->city;
     }
@@ -356,9 +381,9 @@ class Business implements UserInterface
     }
 
     /**
-     * @return Sector
+     * @return Sector|null
      */
-    public function getSector(): Sector
+    public function getSector(): ?Sector
     {
         return $this->sector;
     }
@@ -372,9 +397,9 @@ class Business implements UserInterface
     }
 
     /**
-     * @return Country
+     * @return Country|null
      */
-    public function getNationality(): Country
+    public function getNationality(): ?Country
     {
         return $this->nationality;
     }
@@ -398,5 +423,30 @@ class Business implements UserInterface
 
         return $this;
     }
+
+    /**
+     * @param string $password
+     */
+    public function setPassword(string $password): void
+    {
+        $this->password = $password;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFullName(): string
+    {
+        return $this->fullName;
+    }
+
+    /**
+     * @param string $fullName
+     */
+    public function setFullName(string $fullName): void
+    {
+        $this->fullName = $fullName;
+    }
+
 
 }

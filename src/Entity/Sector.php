@@ -20,7 +20,7 @@ class Sector
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -36,5 +36,44 @@ class Sector
      */
     private $businesses;
 
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getBusinesses(): Collection
+    {
+        return $this->businesses;
+    }
+
+    /**
+     * @param Collection $businesses
+     */
+    public function setBusinesses(Collection $businesses): void
+    {
+        $this->businesses = $businesses;
+    }
 
 }

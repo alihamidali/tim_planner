@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block nav %}
+    <nav>
+        <ul class="nav text-light">
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('index') }}">Home</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('about') }}">About Us</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('media') }}">Media</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('advertise') }}">Advertise</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('contact') }}">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block section %}
+    <section>
+        <img width="100%" src="{{ asset('images/background_2.png') }}" alt="background_2">
+        <img class="position-absolute left-0 h-100 w-auto" style="opacity: 0.6;" width="100%" src="{{ asset('images/login/business-droid.svg') }}" alt="business-droid">
+        <div class="position-absolute top-18 left-35">
+            <form method="post">
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+
+                {% if app.user %}
+                    <div class="mb-3">
+                        You are logged in as {{ app.user.username }}, <a href="{{ path('business_logout') }}">Logout</a>
+                    </div>
+                {% endif %}
+
+                <div class="d-flex flex-column bg-gery pt-4 px-4 rounded-pill-top" style="background: #cacdcf;">
+                    <div class="col-12">
+                        <div class="input-group">
+                            <input value="{{ last_username }}" name="userName" id="inputUserName" type="text" class="form-control f-Semibold p-4" placeholder="Username" required autofocus>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <!-- <label class="visually-hidden" for="inlineFormInputGroupUsername">Password</label> -->
+                        <div class="input-group">
+                            <input type="password" name="password" id="inputPassword" class="form-control f-Semibold p-4" placeholder="Password" required>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="_csrf_token"
+                           value="{{ csrf_token('authenticate') }}"
+                    >
+                    <div class="col-auto d-flex">
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" id="autoSizingCheck" name="_remember_me">
+                            <label class="form-check-label" for="autoSizingCheck">
+                                Remember me
+                            </label>
+                        </div>
+                        <div class="pt-3 bg-transparent ms-auto">
+                            <a href="#" class="f-light-italic text-dark text-decoration-none">Forgot Password?</a>
+                        </div>
+                    </div>
+                    <div class="col-auto py-3">
+                        <div class="btn-shadow rounded-4 w-100 position-relative rounded" style="width: fit-content;">
+                            <button class="btn btn-default text-white f-neuropol btn-primary w-100 d-block w-100" type="submit">LOGIN</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="d-flex flex-column px-4 rounded-pill-bottom" style="background: #535455;">
+                <div class="col-auto py-4">
+                    <div class="mx-auto position-relative" style="width: fit-content;">
+                        <a href="{{ path('business_register') }}" class="f-Semibold text-decoration-none text-white">REGISTER</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
