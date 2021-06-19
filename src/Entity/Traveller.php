@@ -106,13 +106,10 @@ class Traveller implements UserInterface
     /**
      * @var Collection
      *
-     * @ORM\ManyToMany(targetEntity="City")
-     * @ORM\JoinTable(name="traveller_cities",
-     *     joinColumns={@ORM\JoinColumn(name="city_id", referencedColumnName="id")},
-     *     inverseJoinColumns={@ORM\JoinColumn(name="business_id", referencedColumnName="id")}
-     * )
+     * @ORM\ManyToMany(targetEntity="City", inversedBy="travellers", cascade={"persist"})
+     * @ORM\JoinTable(name="traveller_cities")
      */
-    private $city;
+    private $cities;
 
     /**
      * @var TravellerCategory
@@ -137,6 +134,13 @@ class Traveller implements UserInterface
      * @ORM\Column(name="favorite_cuisine", type="string", nullable=true)
      */
     private $favoriteCuisine;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="dream_holiday", type="string", nullable=true)
+     */
+    private $dreamHoliday;
 
     /**
      * @return int
@@ -339,19 +343,19 @@ class Traveller implements UserInterface
     }
 
     /**
-     * @return Collection|null
+     * @return Collection
      */
-    public function getCity(): ?Collection
+    public function getCities(): Collection
     {
-        return $this->city;
+        return $this->cities;
     }
 
     /**
-     * @param Collection $city
+     * @param Collection $cities
      */
-    public function setCity(Collection $city): void
+    public function setCities(Collection $cities): void
     {
-        $this->city = $city;
+        $this->cities = $cities;
     }
 
     /**
@@ -399,5 +403,21 @@ class Traveller implements UserInterface
     public function eraseCredentials()
     {
         // TODO: Implement eraseCredentials() method.
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDreamHoliday(): ?string
+    {
+        return $this->dreamHoliday;
+    }
+
+    /**
+     * @param string|null $dreamHoliday
+     */
+    public function setDreamHoliday(?string $dreamHoliday): void
+    {
+        $this->dreamHoliday = $dreamHoliday;
     }
 }

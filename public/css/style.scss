@@ -75,6 +75,14 @@
 	font-size: 15px;
 }
 
+.font-20 {
+	font-size: 20px;
+}
+
+.font-18 {
+	font-size: 18px;
+}
+
 .font-12 {
 	font-size: 12px;
 }
@@ -93,6 +101,10 @@
 
 .w-30 {
 	width: 30%;
+}
+
+.w-70 {
+	width: 70%;
 }
 
 .top-35 {
@@ -117,10 +129,6 @@
 
 .w-92 {
 	width: 92%;
-}
-
-.w-30 {
-	width: 30%;
 }
 
 .left-35 {
@@ -311,6 +319,76 @@ section {
 	.bg-blue {
 		background: #2978b178;
 		background-image: linear-gradient(180deg, #415c6f, #2b4f699e);
+	}
+
+	.c-blue {
+		color: #194256;
+	}
+
+	.bg-para-blue {
+		background: #507DFE;
+	}
+
+	.bg-para-dark-blue {
+		background: #3F64D3;
+	}
+
+	.parallelogram {
+		transform: skew(-30deg);
+	}
+
+	.not-parallelogram {
+		transform: skew(30deg) !important;
+	}
+
+	.edit-plan-shadow {
+		box-shadow: 2px 4px 4px 2px #888888;
+	}
+
+	.travel {
+		&-plan {
+			position: absolute;
+			top: 3%;
+			left: 7%;
+			width: 86%;
+
+			.checked {
+				color: orange;
+			}
+
+			.description {
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				overflow: hidden;
+			}
+		}
+
+		&-activity {
+			border-radius: 5px;
+			height: 80px;
+			background: #F5F5F5;
+			box-shadow: 3px 3px 10px 5px #c1c1c1;
+
+			.time {
+				z-index: -1;
+				top: -25px;
+				background: #F5F5F5;
+				border-radius: 5px 0 0 0;
+				box-shadow: 3px 3px 10px 5px #c1c1c1;
+			}
+
+			.view {
+				right: 0;
+				bottom: -25px;
+				border-radius: 2px 0 2px 2px;
+				box-shadow: 3px 3px 10px 5px #c1c1c1;
+			}
+		}
+
+		&-details {
+			left: 80px;
+			top: 8px;
+		}
 	}
 
 	.bg-register {

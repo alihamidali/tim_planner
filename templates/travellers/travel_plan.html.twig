@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block nav %}
+    <nav>
+        <ul class="nav text-light">
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('index') }}">Home</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('about') }}">About Us</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('media') }}">Media</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('advertise') }}">Advertise</a><span class="pt-2">|</span>
+            </li>
+            <li class="nav-item d-inline-flex">
+                <a class="nav-link px-2 text-light" href="{{ path('contact') }}">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block section %}
+    <section class="advertise">
+        <img width="100%" src="{{ asset('images/background_2.png') }}">
+        <div class="row travel-plan">
+            <div class="d-flex mb-4">
+                <div class="px-5 py-2 bg-para-blue parallelogram f-neuropol font-18 fw-bold text-white">
+                    <p class="m-0 not-parallelogram">
+                        <span class="font-20 fw-bolder">&lt;</span>
+                        3 Day trip to Dubai
+                        <span class="font-20 fw-bolder">&gt;</span>
+                    </p>
+                </div>
+                <div class="px-5 py-2 bg-para-dark-blue parallelogram f-neuropol font-18 fw-bold text-white"></div>
+                <div class="px-3 py-2 bg-para-blue parallelogram f-neuropol font-12 edit-plan-shadow h-75">
+                    <a href="#" class="text-decoration-none fw-bold text-white">
+                        <p class="m-0 not-parallelogram">Edit this trip</p>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="bg-para-blue parallelogram text-white text-center f-neuropol font-18 py-1 fw-bolder">
+                        <p class="m-0 not-parallelogram">Day 1</p>
+                    </div>
+                    <div class="position-relative travel-activity mt-5">
+                        <div class="position-absolute time">
+                            <div class="position-relative p-1 m-0 f-neuropol font-15">
+                                09:00 AM
+                                <i class="far fa-clock"></i>
+                            </div>
+                        </div>
+                        <img src="{{ asset('images/media/thirdparty_view_1.png') }}" class="p-2" width="80px" height="80px">
+                        <div class="position-absolute travel-details c-blue w-70">
+                            <div class="d-flex flex-row w-100 justify-content-between">
+                                <p class="m-0">HEADING</p>
+                                <div>
+                                    <i class="fas fa-exchange-alt"></i>
+                                    <i class="fas fa-arrows-alt"></i>
+                                    <i class="fas fa-times-circle"></i>
+                                </div>
+                            </div>
+                            <p class="m-0 description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+                            <p class="mt-2">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </p>
+                        </div>
+                        <div class="position-absolute view bg-blue p-2">
+                            <a class="text-decoration-none text-white f-neuropol font-15" href="#">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
