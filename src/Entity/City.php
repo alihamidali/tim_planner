@@ -52,6 +52,13 @@ class City
     private $businesses;
 
     /**
+     * @var Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Traveller", mappedBy="cities")
+     */
+    private $travellers;
+
+    /**
      * @return int
      */
     public function getId(): int
@@ -105,6 +112,22 @@ class City
     public function setDescription(?string $description): void
     {
         $this->description = $description;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getTravellers(): Collection
+    {
+        return $this->travellers;
+    }
+
+    /**
+     * @param Collection $travellers
+     */
+    public function setTravellers(Collection $travellers): void
+    {
+        $this->travellers = $travellers;
     }
 
 }
