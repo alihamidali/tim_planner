@@ -97,7 +97,7 @@ class TravelRegistrationFormType extends AbstractType
                 'error_bubbling' => true,
                 'expanded' => true,
             ])
-            ->add('city', EntityType::class, [
+            ->add('cities', EntityType::class, [
                 'class' => City::class,
                 'choice_label' => 'name',
                 'invalid_message' => 'You entered an invalid city value',

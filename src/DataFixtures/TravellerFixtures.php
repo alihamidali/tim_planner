@@ -66,7 +66,7 @@ class TravellerFixtures extends Fixture
                 }
                 $cityCollection->add($city);
             }
-            $traveller->setCities($cityCollection);
+            $traveller->setCity($cityCollection);
 
             $em = $this->container->get('doctrine.orm.entity_manager');
             $sector = $em->getRepository('App\Entity\Sector')->findOneBy(['name' => $line[4]]);

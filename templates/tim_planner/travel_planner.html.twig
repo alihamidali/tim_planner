@@ -27,28 +27,28 @@
         <img width="100%" src="{{ asset('images/travel_planner/background1.png') }}" alt="background1">
         <img style="position: absolute;right: 0;width: 72%;top: 12%;" src="{{ asset('images/travel_planner/droid.png') }}" alt="droid">
         <div class="position-absolute top-18 p-3 ms-4 border border-primary border-3 border-top-0 border-bottom-0" style="background-color: #0040ff45;">
-            <form>
+            {{ form_start(form) }}
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label text-white f-neuropol">DATE OF TRAVEL</label>
                     <div class="d-flex flex-row text-white">
-                        <input type="date" class="form-control text-center bg-white text-dark f-regular w-auto" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        {{ form_widget(form.start_date, { 'attr': { 'class': 'form-control text-center bg-white text-dark f-regular w-auto', 'aria-describedby': "inputGroup-sizing-default" } }) }}
                         <span class="p-2">to</span>
-                        <input type="date" class="form-control text-center bg-white text-dark f-regular w-auto" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        {{ form_widget(form.end_date, { 'attr': { 'class': 'form-control text-center bg-white text-dark f-regular w-auto', 'aria-describedby': "inputGroup-sizing-default" } }) }}
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label text-white f-neuropol">TIME ALLOCATED PER DAY</label>
-                    <input type="text" class="form-control text-center bg-white text-dark f-regular w-50" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="hour">
+                    {{ form_widget(form.time_allocated_per_day, { 'attr': { 'class': 'form-control text-center bg-white text-dark f-regular w-50', 'aria-describedby': "inputGroup-sizing-default", 'placeholder': 'hour' } }) }}
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label text-white f-neuropol">YOUR LOCATION</label>
-                    <textarea type="text" class="form-control text-center bg-white text-dark f-regular" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="address"></textarea>
+                    {{ form_widget(form.location, { 'attr': { 'class': 'form-control text-center bg-white text-dark f-regular', 'aria-describedby': "inputGroup-sizing-default", 'placeholder': 'address' } }) }}
                 </div>
                 <hr class="text-white" style="opacity: 1;">
                 <div class="text-center">
                     <button type="submit" class="btn text-white bg-register w-50 p-2 rounded-3 f-neuropol">ACTIVATE TIM</button>
                 </div>
-            </form>
+            {{ form_end(form) }}
         </div>
     </section>
 {% endblock %}

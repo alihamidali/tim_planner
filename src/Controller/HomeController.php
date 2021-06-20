@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
-use App\Entity\Business;
-use App\Form\BusinessRegistrationFormType;
+use App\Entity\TravelPlan;
+use App\Form\TravelPlannerFormType;
+use App\Repository\TravelPlanRepository;
+use App\Service\TravellerService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -74,11 +76,27 @@ class HomeController extends AbstractController
     /**
      * @Route("/travel_planner", name="travel_planner")
      * @param Request $request
+     * @param TravellerService $travellerService
      * @return Response
      */
-    public function travelPlanner(Request $request): Response
+    public function travelPlanner(Request $request, TravellerService $travellerService): Response
     {
-        return $this->render('tim_planner/travel_planner.html.twig');
+        $travelPlan = new TravelPlan();
+        $travelPlanForm = $this->createForm(TravelPlannerFormType::class, $travelPlan);
+        $travelPlanForm->handleRequest($request);
+
+        if ($travelPlanForm->isSubmitted() && $travelPlanForm->isValid()) {
+            $location = $request->get('travel_planner_form')['location'];
+
+            $travelPlan = $travellerService->getAndSaveTravelPlan($travelPlan, $location);
+
+            return $this->redirectToRoute('travel_plan', [
+                'id' => $travelPlan->getId()
+            ]);
+        }
+        return $this->render('tim_planner/travel_planner.html.twig', [
+            'form' => $travelPlanForm->createView()
+        ]);
     }
 
     /**

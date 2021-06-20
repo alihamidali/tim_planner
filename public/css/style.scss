@@ -83,6 +83,31 @@
 	font-size: 18px;
 }
 
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px #000000;
+	border-radius: 50px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #E8EBEE;
+	border-radius: 50px;
+	border: 1px solid black;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #47B5ED;
+}
+
 .font-12 {
 	font-size: 12px;
 }
@@ -343,6 +368,13 @@ section {
 
 	.edit-plan-shadow {
 		box-shadow: 2px 4px 4px 2px #888888;
+	}
+
+	&.travel {
+		overflow-y: scroll;
+		height: 80vh;
+		background-size: cover !important;
+		background: url('../images/background_2.png') no-repeat;
 	}
 
 	.travel {
